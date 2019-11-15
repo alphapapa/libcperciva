@@ -1,0 +1,19 @@
+name: main
+
+# FIXME: change this to master if it works
+on:
+  push:
+    branches:
+      - actions
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: build
+      run: make
+    - name: test
+      run: make test USES_VALGRIND=1
